@@ -37,7 +37,7 @@ const skillsContent = document.getElementsByClassName('skills__content'),
 function toggleSkills(){
     let itemClass = this.parentNode.className
     
-    for(i = 0; i < skillsContent.length; i++){
+    for(let i = 0; i < skillsContent.length; i++){
         skillsContent[i].className = 'skills__content skills__close'
     }
     if(itemClass === 'skills__content skills__close'){
@@ -111,16 +111,20 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
 let swiperTestimonial = new Swiper('.testimonial__container', {
     loop: true,
     grabCursor: true,
-    spaceBetween: 48,
+    spaceBetween: 24,
 
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
         dynamicBullets: true,
     },
+
     breakpoints: {
         568: {
             slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
         },
     }
 })
@@ -135,7 +139,7 @@ function scrollActive(){
     sections.forEach(current =>{
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+        const sectionId = current.getAttribute('id')
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
@@ -190,3 +194,76 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+/*==================== CONTACT FORM AJAX + POPUP ====================*/
+(function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const submitBtn = document.getElementById('contact-submit');
+    const btnText = document.getElementById('contact-btn-text');
+    const popup = document.getElementById('contact-popup');
+    const popupClose = document.getElementById('contact-popup-close');
+
+    if (!submitBtn || !btnText || !popup || !popupClose) return;
+
+    const setLoading = (isLoading) => {
+        if (isLoading) {
+            submitBtn.classList.add('is-loading');
+            submitBtn.disabled = true;
+            btnText.textContent = 'Sending...';
+        } else {
+            submitBtn.classList.remove('is-loading');
+            submitBtn.disabled = false;
+            btnText.textContent = 'Send Message';
+        }
+    };
+
+    const openPopup = () => {
+        popup.classList.add('active-popup');
+    };
+
+    const closePopup = () => {
+        popup.classList.remove('active-popup');
+    };
+
+    popupClose.addEventListener('click', closePopup);
+
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (submitBtn.disabled) return;
+
+        setLoading(true);
+
+        try {
+            const formData = new FormData(form);
+
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                openPopup();
+            } else {
+                alert('Something went wrong. Please try again or contact me directly by email.');
+            }
+        } catch (error) {
+            alert('Network error. Please try again in a moment.');
+        } finally {
+            setLoading(false);
+        }
+    });
+})();
+
