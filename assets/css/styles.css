@@ -868,6 +868,11 @@ img {
   background: rgba(255,255,255,0.03);
 }
 
+/* Todos os cartões com a altura do mais alto */
+.testimonial__container .swiper-slide {
+  height: auto;
+}
+
 .testimonial__data{
     display: flex;
     align-items: center;
