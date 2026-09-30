@@ -89,10 +89,16 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
 })
 
 /*==================== TESTIMONIAL ====================*/
+const bulletMessage = () => (window.i18n ? window.i18n.t('Go to slide {{index}}') : 'Go to slide {{index}}')
+
 let swiperTestimonial = new Swiper('.testimonial__container', {
     loop: true,
     grabCursor: true,
     spaceBetween: 24,
+
+    a11y: {
+        paginationBulletMessage: bulletMessage(),
+    },
 
     pagination: {
         el: '.swiper-pagination',
@@ -108,6 +114,22 @@ let swiperTestimonial = new Swiper('.testimonial__container', {
             slidesPerView: 3,
         },
     }
+})
+
+
+// Troca de idioma: o loop do Swiper copia os slides ao iniciar, então as cópias
+// são recriadas a partir dos slides já traduzidos; os bullets ganham o rótulo novo
+document.addEventListener('languagechange', () => {
+    const realIndex = swiperTestimonial.realIndex
+    swiperTestimonial.loopDestroy()
+    swiperTestimonial.loopCreate()
+    swiperTestimonial.update()
+    swiperTestimonial.slideToLoop(realIndex, 0, false)
+
+    swiperTestimonial.params.a11y.paginationBulletMessage = bulletMessage()
+    document.querySelectorAll('.swiper-pagination-testimonial .swiper-pagination-bullet').forEach((bullet, i) => {
+        bullet.setAttribute('aria-label', bulletMessage().replace('{{index}}', i + 1))
+    })
 })
 
 
@@ -188,15 +210,20 @@ themeButton.addEventListener('click', () => {
 
     if (!submitBtn || !btnText || !popup || !popupClose) return;
 
+    // Textos no idioma escolhido (assets/js/i18n.js); sem ele, fica em inglês
+    const t = text => (window.i18n ? window.i18n.t(text) : text);
+    // Troca o texto no mesmo nó, para o i18n continuar acompanhando o botão
+    const setButtonText = text => { btnText.firstChild.nodeValue = t(text); };
+
     const setLoading = (isLoading) => {
         if (isLoading) {
             submitBtn.classList.add('is-loading');
             submitBtn.disabled = true;
-            btnText.textContent = 'Sending...';
+            setButtonText('Sending...');
         } else {
             submitBtn.classList.remove('is-loading');
             submitBtn.disabled = false;
-            btnText.textContent = 'Send Message';
+            setButtonText('Send Message');
         }
     };
 
@@ -238,10 +265,10 @@ themeButton.addEventListener('click', () => {
                 form.reset();
                 openPopup();
             } else {
-                alert('Something went wrong. Please try again or contact me directly by email.');
+                alert(t('Something went wrong. Please try again or contact me directly by email.'));
             }
         } catch (error) {
-            alert('Network error. Please try again in a moment.');
+            alert(t('Network error. Please try again in a moment.'));
         } finally {
             setLoading(false);
         }

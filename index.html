@@ -86,7 +86,7 @@
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
-                <a href="#" class="nav__logo">Luis Quesada</a>
+                <a href="#" class="nav__logo" translate="no">Luis Quesada</a>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list grid">
@@ -138,6 +138,33 @@
                 </div>
 
                 <div class="nav__btns">
+                    <!-- Language switcher -->
+                    <div class="lang" id="lang" translate="no">
+                        <button type="button" class="lang__button" id="lang-button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language / Idioma">
+                            <span class="lang__flag" data-flag="en"></span>
+                            <span class="lang__code" id="lang-code">EN</span>
+                            <i class="uil uil-angle-down lang__arrow"></i>
+                        </button>
+
+                        <ul class="lang__menu" id="lang-menu" role="menu">
+                            <li role="none">
+                                <button type="button" class="lang__option" role="menuitemradio" data-lang="en" lang="en">
+                                    <span class="lang__flag" data-flag="en"></span> English
+                                </button>
+                            </li>
+                            <li role="none">
+                                <button type="button" class="lang__option" role="menuitemradio" data-lang="pt" lang="pt-BR">
+                                    <span class="lang__flag" data-flag="pt"></span> Português
+                                </button>
+                            </li>
+                            <li role="none">
+                                <button type="button" class="lang__option" role="menuitemradio" data-lang="es" lang="es">
+                                    <span class="lang__flag" data-flag="es"></span> Español
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
                     <!-- Theme change button -->
                     <i class="uil uil-moon change-theme" id="theme-button"></i>
 
@@ -193,7 +220,7 @@
 
                         <div class="home__data">
                             <h1 class="home__title">Hi, I'm Luis Quesada</h1>
-                            <h3 class="home__subtitle">AI Solutions Architect & Product Builder</h3>
+                            <h3 class="home__subtitle" translate="no">AI Solutions Architect & Product Builder</h3>
                             <p class="home__description">I design and build the systems that take operations out of
                                 spreadsheets, and most of them now have AI inside.
                             </p>
@@ -257,11 +284,9 @@
                         </p>
 
                         <div class="about__buttons">
-                            <a download href="assets/pdf/CV-Luis-Quesada-EN.pdf" class="button button--flex">
-                                Download CV (EN) <i class="uil uil-download-alt button__icon"></i>
-                            </a>
-                            <a download href="assets/pdf/CV-Luis-Quesada-PT.pdf" class="button button--flex" lang="pt-BR">
-                                Baixar CV (PT) <i class="uil uil-download-alt button__icon"></i>
+                            <!-- O arquivo muda com o idioma (assets/js/i18n.js) -->
+                            <a download href="assets/pdf/CV-Luis-Quesada-EN.pdf" class="button button--flex" id="cv-button">
+                                Download CV <i class="uil uil-download-alt button__icon"></i>
                             </a>
                         </div>
                     </div>
@@ -283,11 +308,11 @@
                         <ul class="skills__tags">
                             <li class="skills__tag">Lean discovery</li>
                             <li class="skills__tag">Product vision & metrics</li>
-                            <li class="skills__tag">Roadmap</li>
+                            <li class="skills__tag" translate="no">Roadmap</li>
                             <li class="skills__tag">Backlog prioritization</li>
                             <li class="skills__tag">Requirements & documentation</li>
-                            <li class="skills__tag">Design Thinking</li>
-                            <li class="skills__tag">Customer Journey Mapping</li>
+                            <li class="skills__tag" translate="no">Design Thinking</li>
+                            <li class="skills__tag" translate="no">Customer Journey Mapping</li>
                         </ul>
                     </div>
 
@@ -301,7 +326,7 @@
                             <li class="skills__tag">AI agent orchestration (Claude Code)</li>
                             <li class="skills__tag">LLM applications (tool use, RAG)</li>
                             <li class="skills__tag">Prompt & context engineering</li>
-                            <li class="skills__tag">MCP</li>
+                            <li class="skills__tag" translate="no">MCP</li>
                             <li class="skills__tag">LLM cost governance</li>
                         </ul>
                     </div>
@@ -314,14 +339,14 @@
                         </div>
                         <ul class="skills__tags">
                             <li class="skills__tag">REST APIs</li>
-                            <li class="skills__tag">Webhooks</li>
-                            <li class="skills__tag">SQL (PostgreSQL)</li>
-                            <li class="skills__tag">TypeScript</li>
-                            <li class="skills__tag">Next.js</li>
-                            <li class="skills__tag">Node.js</li>
-                            <li class="skills__tag">Supabase</li>
+                            <li class="skills__tag" translate="no">Webhooks</li>
+                            <li class="skills__tag" translate="no">SQL (PostgreSQL)</li>
+                            <li class="skills__tag" translate="no">TypeScript</li>
+                            <li class="skills__tag" translate="no">Next.js</li>
+                            <li class="skills__tag" translate="no">Node.js</li>
+                            <li class="skills__tag" translate="no">Supabase</li>
                             <li class="skills__tag">Integration flows</li>
-                            <li class="skills__tag">TDD</li>
+                            <li class="skills__tag" translate="no">TDD</li>
                             <li class="skills__tag">E2E testing (Playwright)</li>
                         </ul>
                     </div>
@@ -333,9 +358,9 @@
                             <h3 class="skills__title">Data</h3>
                         </div>
                         <ul class="skills__tags">
-                            <li class="skills__tag">KPIs</li>
-                            <li class="skills__tag">Dashboards</li>
-                            <li class="skills__tag">Looker Studio</li>
+                            <li class="skills__tag" translate="no">KPIs</li>
+                            <li class="skills__tag" translate="no">Dashboards</li>
+                            <li class="skills__tag" translate="no">Looker Studio</li>
                             <li class="skills__tag">Customer health metrics</li>
                         </ul>
                     </div>
@@ -347,7 +372,7 @@
                             <h3 class="skills__title">Business</h3>
                         </div>
                         <ul class="skills__tags">
-                            <li class="skills__tag">Customer Success</li>
+                            <li class="skills__tag" translate="no">Customer Success</li>
                             <li class="skills__tag">B2B account management</li>
                             <li class="skills__tag">Proposals & negotiation</li>
                             <li class="skills__tag">Pipedrive CRM</li>
@@ -406,7 +431,7 @@
                                 </div>
 
                                 <div>
-                                    <h3 class="qualification__title">Digital Commerce Expert</h3>
+                                    <h3 class="qualification__title" translate="no">Digital Commerce Expert</h3>
                                     <span class="qualification__subtitle">EICOM Institute - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -455,7 +480,7 @@
                             <!--=============== QUALIFICATION 1 ===============-->
                             <div class="qualification__data">
                                 <div>
-                                    <h3 class="qualification__title">AI Solutions Architect & Product Builder</h3>
+                                    <h3 class="qualification__title" translate="no">AI Solutions Architect & Product Builder</h3>
                                     <span class="qualification__subtitle">Vision Marine Training - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -478,7 +503,7 @@
                                 </div>
 
                                 <div>
-                                    <h3 class="qualification__title">Operations Lead</h3>
+                                    <h3 class="qualification__title" translate="no">Operations Lead</h3>
                                     <span class="qualification__subtitle">Vision Marine Training - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -490,7 +515,7 @@
                             <!--=============== QUALIFICATION 3 ===============-->
                             <div class="qualification__data">
                                 <div>
-                                    <h3 class="qualification__title">Customer Success Specialist & Post-Sales Executive</h3>
+                                    <h3 class="qualification__title" translate="no">Customer Success Specialist & Post-Sales Executive</h3>
                                     <span class="qualification__subtitle">Vision Marine Training - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -513,7 +538,7 @@
                                 </div>
 
                                 <div>
-                                    <h3 class="qualification__title">Business Development Manager</h3>
+                                    <h3 class="qualification__title" translate="no">Business Development Manager</h3>
                                     <span class="qualification__subtitle">VTEX - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -525,7 +550,7 @@
                             <!--=============== QUALIFICATION 5 ===============-->
                             <div class="qualification__data">
                                 <div>
-                                    <h3 class="qualification__title">Customer Excellence Manager</h3>
+                                    <h3 class="qualification__title" translate="no">Customer Excellence Manager</h3>
                                     <span class="qualification__subtitle">VTEX - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -548,7 +573,7 @@
                                 </div>
 
                                 <div>
-                                    <h3 class="qualification__title">Customer Excellence Analyst</h3>
+                                    <h3 class="qualification__title" translate="no">Customer Excellence Analyst</h3>
                                     <span class="qualification__subtitle">VTEX - Brazil</span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
@@ -769,7 +794,7 @@
                         <i class="uil uil-robot projects__icon"></i>
                         <h3 class="projects__title">Corporate AI Agent (Claude + RAG)</h3>
                         <p class="projects__description">An assistant built on Claude with 8 tools that query classes, students, CRM deals, KPIs, documents and Canva, plus web search. Voice input (Whisper), per-user preferences and LLM usage and cost governance by model and by person. Document answers use RAG over a company knowledge base, with personal data masked before indexing (LGPD) and permission-aware retrieval. Full-text search in Portuguese and English today, with the vector layer prepared as the next phase.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Claude (Anthropic API)</li>
                             <li class="projects__tag">Tool use</li>
                             <li class="projects__tag">Whisper</li>
@@ -784,7 +809,7 @@
                         <i class="uil uil-whatsapp projects__icon"></i>
                         <h3 class="projects__title">API for an AI sales agent on WhatsApp</h3>
                         <p class="projects__description">The training system's public API is consumed by an AI agent that talks to leads on WhatsApp, so the contract was written for an LLM reader: list order is a business rule (the agent offers the first item), an invalid preference filter never leaves the agent without options, there are no ambiguous nulls, no contradictory signals, and anything in the response may be said to the customer.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Node.js</li>
                             <li class="projects__tag">Express</li>
                             <li class="projects__tag">TypeScript</li>
@@ -796,7 +821,7 @@
                         <i class="uil uil-clipboard-notes projects__icon"></i>
                         <h3 class="projects__title">Training management system modules</h3>
                         <p class="projects__description">Certificate tracking fed by confirmed classes, one-click pre-course emails per class, a weekly authorized-participants list sent to the building reception every Monday, hourly Pipedrive sync for B2B companies, e-learning certificates generated and sent for e-signature in one click, assessments with auto-proctoring replacing an Excel control, onboard training cycles and a role and permission matrix.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Express</li>
                             <li class="projects__tag">React</li>
                             <li class="projects__tag">Supabase</li>
@@ -808,7 +833,7 @@
                         <i class="uil uil-qrcode-scan projects__icon"></i>
                         <h3 class="projects__title">Digital certificates</h3>
                         <p class="projects__description">PDF certificates from templates (11 for e-learning) with a QR code that opens a public validation page, e-signature through D4Sign and hourly status sync. A task that took 3 to 5 hours a week became a few clicks.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Next.js</li>
                             <li class="projects__tag">Supabase</li>
                             <li class="projects__tag">D4Sign</li>
@@ -820,7 +845,7 @@
                         <i class="uil uil-window projects__icon"></i>
                         <h3 class="projects__title">Corporate portal</h3>
                         <p class="projects__description">One login for the company's internal tools: 85 screens with CRM, marketing, document management with SharePoint import, OKRs, boards and meetings, commercial proposals with an AI-generated landing page, an executive dashboard fed by Pipedrive and the AI agent. Role-based access per module and action, audit trail and 2FA.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Next.js</li>
                             <li class="projects__tag">Supabase</li>
                             <li class="projects__tag">Vercel</li>
@@ -832,7 +857,7 @@
                         <i class="uil uil-box projects__icon"></i>
                         <h3 class="projects__title">Inventory and purchasing</h3>
                         <p class="projects__description">Stock in and out with a barcode scanner, purchase orders, supplier evaluation in PDF, reports, low-stock alerts and automatic email summaries (daily, weekly and monthly).</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Next.js</li>
                             <li class="projects__tag">Supabase</li>
                             <li class="projects__tag">shadcn/ui</li>
@@ -844,7 +869,7 @@
                         <i class="uil uil-fire projects__icon"></i>
                         <h3 class="projects__title">MARVIS fire &amp; gas simulator</h3>
                         <p class="projects__description">A training that ran as a macro-enabled PowerPoint, rebuilt as a faithful offline desktop app that runs on a kiosk or from a USB drive, with no internet or database. Shipped as an installer and a portable version.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Electron</li>
                         </ul>
                     </article>
@@ -854,7 +879,7 @@
                         <i class="uil uil-chart-pie-alt projects__icon"></i>
                         <h3 class="projects__title">Satisfaction dashboard</h3>
                         <p class="projects__description">Student survey answers feed a Looker Studio dashboard automatically.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Looker Studio</li>
                         </ul>
                     </article>
@@ -864,7 +889,7 @@
                         <i class="uil uil-brain projects__icon"></i>
                         <h3 class="projects__title">Second brain for AI agents</h3>
                         <p class="projects__description">A git repository of Markdown notes, synced by Claude Code hooks at the start and end of each session, that keeps rules, skills, decisions and lessons the same on any computer, with a knowledge graph in Obsidian.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Git</li>
                             <li class="projects__tag">Claude Code hooks</li>
                             <li class="projects__tag">Markdown</li>
@@ -877,7 +902,7 @@
                         <i class="uil uil-eye projects__icon"></i>
                         <h3 class="projects__title">VMT Office: AI agent observability</h3>
                         <p class="projects__description">A pixel-art virtual office that shows, live, what each Claude Code session on the team is doing, one desk per session. Hooks capture events, a server receives them and the browser draws the office in real time.</p>
-                        <ul class="projects__stack">
+                        <ul class="projects__stack" translate="no">
                             <li class="projects__tag">Node.js with no dependencies</li>
                             <li class="projects__tag">Server-Sent Events</li>
                             <li class="projects__tag">Docker</li>
@@ -991,7 +1016,7 @@
                                     <img src="assets/img/testimonial1.jpeg" alt="" class="testimonial__img">
         
                                     <div>
-                                        <h3 class="testimonial__name">Stephanie Vilchez </h3>
+                                        <h3 class="testimonial__name" translate="no">Stephanie Vilchez</h3>
                                         <span class="testimonial__client">Peer</span>
                                     </div>
                                 </div>
@@ -1010,7 +1035,7 @@
                                     <img src="assets/img/testimonial2.jpeg" alt="" class="testimonial__img">
         
                                     <div>
-                                        <h3 class="testimonial__name">Gabriel França</h3>
+                                        <h3 class="testimonial__name" translate="no">Gabriel França</h3>
                                         <span class="testimonial__client">Boss</span>
                                     </div>
                                 </div>
@@ -1030,7 +1055,7 @@
                                     <img src="assets/img/testimonial3.jpeg" alt="" class="testimonial__img">
         
                                     <div>
-                                        <h3 class="testimonial__name">Jonathan Ramirez</h3>
+                                        <h3 class="testimonial__name" translate="no">Jonathan Ramirez</h3>
                                         <span class="testimonial__client">Boss</span>
                                     </div>
                                 </div>
@@ -1050,7 +1075,7 @@
                                     <img src="assets/img/testimonial4.jpeg" alt="" class="testimonial__img">
         
                                     <div>
-                                        <h3 class="testimonial__name">Nicholas Noleto</h3>
+                                        <h3 class="testimonial__name" translate="no">Nicholas Noleto</h3>
                                         <span class="testimonial__client">Employee</span>   
                                     </div>
                                 </div>
@@ -1069,7 +1094,7 @@
                                     <img src="assets/img/testimonial5.jpg" alt="" class="testimonial__img">
         
                                     <div>
-                                        <h3 class="testimonial__name">Juana Coelho</h3>
+                                        <h3 class="testimonial__name" translate="no">Juana Coelho</h3>
                                         <span class="testimonial__client">Employee</span>   
                                     </div>
                                 </div>
@@ -1098,7 +1123,7 @@
                             <i class="uil uil-envelope contact__icon"></i>
                             <div>
                                 <h3 class="contact__title">Email</h3>
-                                <span class="contact__subtitle">quesadaluis1987@gmail.com</span>
+                                <span class="contact__subtitle" translate="no">quesadaluis1987@gmail.com</span>
                             </div>
                         </div>
 
@@ -1159,8 +1184,8 @@
             <div class="footer__bg">
                 <div class="footer__container container grid">
                     <div>
-                        <h1 class="footer__title">Luis Quesada</h1>
-                        <span class="footer__subtitle">AI Solutions Architect & Product Builder</span>
+                        <h1 class="footer__title" translate="no">Luis Quesada</h1>
+                        <span class="footer__subtitle" translate="no">AI Solutions Architect & Product Builder</span>
                     </div>
 
                     <ul class="footer__links">
@@ -1183,7 +1208,7 @@
                             <a href="#portfolio" class="footer__link">Portfolio</a>
                         </li>-->
                         <li>
-                            <a href="#contact" class="footer__link">Let´s Talk!</a>
+                            <a href="#contact" class="footer__link">Let’s Talk!</a>
                         </li>
                     </ul>
 
@@ -1200,7 +1225,7 @@
                     </div>
                 </div>
 
-                <p class="footer__copy">&#169; Luis Quesada. All right reserved</p>
+                <p class="footer__copy">&#169; Luis Quesada. All rights reserved</p>
             </div>
         </footer>
 
@@ -1223,6 +1248,10 @@
 
         <!--==================== SWIPER JS ====================-->
         <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--==================== I18N ====================-->
+        <script src="assets/js/translations.js"></script>
+        <script src="assets/js/i18n.js"></script>
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
